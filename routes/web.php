@@ -14,8 +14,9 @@ use App\Http\Controllers\MascarillasController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
+Route::get('/', [MascarillasController::class,'index']);
 Route::post('/Agregar', [MascarillasController::class,'agregar'])->name('Agregar');

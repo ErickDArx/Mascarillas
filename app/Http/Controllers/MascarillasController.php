@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use File;
+use App\Models\mascarillas;
 use Spatie\Dropbox\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -17,6 +17,14 @@ class MascarillasController extends Controller
         $this->dropbox = Storage::disk('dropbox')->getDriver()->getAdapter()->getClient();
     }
 
+    public function index(){
+         // Obtenemos todos los registros de la tabla files
+        // y retornamos la vista files con los datos.
+        $files = mascarillas::orderBy('created_at')->get();
+        
+        return view('welcome', compact('files'));
+    }
+
     public function agregar(Request $request)
     {
         Storage::disk('dropbox')->putFileAs(
@@ -29,6 +37,12 @@ class MascarillasController extends Controller
             $request->file('file')->getClientOriginalName(),
             ["requested_visibility" => "public"]
         );
+
+        mascarillas::create([
+            'nombre' => $response['name'],
+            'url' => str_replace('www.dropbox.com','dl.dropboxusercontent.com',$response['url'])
+        ]);
+
         
         return back();
     }
