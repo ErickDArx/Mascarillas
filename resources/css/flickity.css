@@ -5,7 +5,6 @@ https://flickity.metafizzy.co
 .flickity-enabled {
     position: relative;
   }
-
   
   .flickity-enabled:focus { outline: none; }
   
@@ -13,6 +12,11 @@ https://flickity.metafizzy.co
     overflow: hidden;
     position: relative;
     height: 100%;
+  }
+
+  .flickity-viewport:hover{
+    background: rgb(0, 0, 0);
+    position: relative;
   }
   
   .flickity-slider {
@@ -135,4 +139,20 @@ https://flickity.metafizzy.co
   
   .flickity-page-dots .dot.is-selected {
     opacity: 1;
+  }
+
+  
+.carousel {
+    background: rgb(255, 255, 255);
+  }
+  
+  .carousel img {
+    display: block;
+    height: 200px;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .carousel img {
+      height: 400px;
+    }
   }

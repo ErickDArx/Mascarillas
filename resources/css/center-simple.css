@@ -1,0 +1,33 @@
+.pace {
+	-webkit-pointer-events: none;
+	pointer-events: none;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+
+	z-index: 2000;
+	position: absolute;
+	margin: auto;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.533);
+	overflow: hidden;
+}
+
+.pace .pace-progress {
+	position: absolute;
+	transition: 10s linear ;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	text-align: center;
+	color: #8888;
+	background: url('logoSEO.png') no-repeat center;
+}
+.pace.pace-inactive {
+	display: none;
+}
